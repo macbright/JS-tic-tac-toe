@@ -1,3 +1,68 @@
+body{
+	background: #eeeeee;
+}
 .player2 {
     display: none;
+}
+.game-board{
+	width: 360px;
+	height: 360px;
+	display: none;
+}
+.one{
+	width:  120px;
+	height: 120px;
+	border: 5px solid #000;
+	border-left:0;
+	border-top: 0;
+}
+.two{
+	width:  120px;
+	height: 120px;
+	border: 5px solid #000;
+	border-top: 0;
+}
+.three{
+	width:  120px;
+	height: 120px;
+	border: 5px solid #000;
+	border-right:0;
+	border-top: 0;
+}
+.four{
+	width:  120px;
+	height: 120px;
+	border: 5px solid #000;
+	border-left:0;
+}
+.five{
+	width:  120px;
+	height: 120px;
+	border: 5px solid #000;
+}
+.six{
+	width:  120px;
+	height: 120px;
+	border: 5px solid #000;
+	border-right:0;
+}
+.seven{
+	width:  120px;
+	height: 120px;
+	border: 5px solid #000;
+	border-left:0;
+	border-bottom: 0;
+}
+.eight{
+	width:  120px;
+	height: 120px;
+	border: 5px solid #000;
+	border-bottom: 0;
+}
+.nine{
+	width:  120px;
+	height: 120px;
+	border: 5px solid #000;
+	border-right:0;
+	border-bottom: 0;
 }
