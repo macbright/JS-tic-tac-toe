@@ -33,7 +33,9 @@ player2Next.addEventListener("click", e => {
 });
 
 const gameBoard = (() => {
-    let board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    let board = ["", "", "", "", "", "", "", "", ""];
+    let count = 0;
+    gamestop = false;
 
     const getBoard = board => board;
 
@@ -43,7 +45,7 @@ const gameBoard = (() => {
     };
 
     const resetBoard = () => {
-        board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+        board = ["", "", "", "", "", "", "", "", ""];
         renderBoard();
         return board;
     };
@@ -53,70 +55,89 @@ const gameBoard = (() => {
         });
     };
 
-    const checkRows = () => {
-        let win = false;
-        if (board[0] === board[1] && board[0] === board[2]) {
-            win = true;
-        } else if (board[3] === board[4] && board[3] === board[5]) {
-            win = true;
-        } else if (board[6] === board[7] && board[6] === board[8]) {
-            win = true;
-        }
-        return win;
+    const winner = player => {
+        gamestop = true;
+        $(".result").innerHTML = `Congrats ${player.name}  won!!! 🎉`;
+        $(".result").style.display = "block";
+        $$(".col-4").forEach(box => {
+            const newBox = box.cloneNode(true);
+            box.parentNode.replaceChild(newBox, box);
+        });
     };
 
-    const checkColumns = () => {
-        let win = false;
-        if (board[0] === board[3] && board[0] === board[6]) {
-            win = true;
-        } else if (board[1] === board[4] && board[1] === board[7]) {
-            win = true;
-        } else if (board[2] === board[5] && board[2] === board[8]) {
-            win = true;
-        }
-        return win;
+    const draw = () => {
+        gamestop = true;
+        $(".result").innerHTML = "It's a draw";
+        $(".result").style.display = "block";
+        $$(".col-4").forEach(box => {
+            const newBox = box.cloneNode(true);
+            box.parentNode.replaceChild(newBox, box);
+        });
     };
 
-    const checkDiagonals = () => {
-        let win = false;
-        if (board[0] === board[4] && board[0] === board[8]) {
-            win = true;
-        } else if (board[2] === board[4] && board[2] === board[6]) {
-            win = true;
-        }
-        return win;
-    };
-    const checkForWinner = () => {
-        if (checkRows() || checkColumns() || checkDiagonals()) {
-            console.log("congrats you won!!!");
-        } else {
-            console.log("nice attempt");
+    const checkDraw = () => {
+        if (gamestop === false) {
+            gamestop = true;
+            draw();
         }
     };
 
-    // let renderBoard = () => {
-    //     let one = document.querySelector('.one')
-    //     let two = document.querySelector('.two')
-    //     let three = document.querySelector('.three')
-    //     let four = document.querySelector('.four')
-    //     let five = document.querySelector('.five')
-    //     let six = document.querySelector('.six')
-    //     let seven = document.querySelector('.seven')
-    //     let eight = document.querySelector('.eight')
-    //     let nine = document.querySelector('.nine')
+    const checkRows = player => {
+        if (board[0] === board[1] && board[0] === board[2] && board[0] !== "") {
+            winner(player);
+        } else if (
+            board[3] === board[4] &&
+            board[3] === board[5] &&
+            board[3] !== ""
+        ) {
+            winner(player);
+        } else if (
+            board[6] === board[7] &&
+            board[6] === board[8] &&
+            board[6] !== ""
+        ) {
+            winner(player);
+        }
+    };
 
-    //     return [
-    //         one.innerHTML = '1',
-    //         two.innerHTML = '2',
-    //         three.innerHTML = '3',
-    //         four.innerHTML = '4',
-    //         five.innerHTML = '5',
-    //         six.innerHTML = '6',
-    //         seven.innerHTML = '7',
-    //         eight.innerHTML = '8',
-    //         nine.innerHTML = '9'
-    //     ]
-    // }
+    const checkColumns = player => {
+        if (board[0] === board[3] && board[0] === board[6] && board[0] !== "") {
+            winner(player);
+        } else if (
+            board[1] === board[4] &&
+            board[1] === board[7] &&
+            board[1] !== ""
+        ) {
+            winner(player);
+        } else if (
+            board[2] === board[5] &&
+            board[2] === board[8] &&
+            board[2] !== ""
+        ) {
+            winner(player);
+        }
+    };
+
+    const checkDiagonals = player => {
+        if (board[0] === board[4] && board[0] === board[8] && board[0] !== "") {
+            winner(player);
+        } else if (
+            board[2] === board[4] &&
+            board[2] === board[6] &&
+            board[2] !== ""
+        ) {
+            winner(player);
+        }
+    };
+    const checkForWinner = player => {
+        checkRows(player);
+        checkColumns(player);
+        checkDiagonals(player);
+        count += 1;
+        if (count === 9) {
+            checkDraw();
+        }
+    };
 
     return {
         getBoard,
@@ -127,32 +148,38 @@ const gameBoard = (() => {
     };
 })();
 
+gameBoard.getBoard();
+
 const playerFactory = (name, mark, score = 0) => {
     return { name, mark, score };
 };
-gameBoard.getBoard();
 
 const game = (() => {
-    let playersTurn = 1;
-    const addMark = () => {
-        // const player1Info = document.querySelector(".p11").value;
-        // const player2 = document.querySelector(".p22");
-        // let player1mark = document.querySelector("#player1mark").value;
-        // const playerOne = playerFactory(player1Info, player1mark);
-        // let player2mark;
-        // player1mark === "X" ? (player2mark = "O") : (player2mark = "X");
+    const p1 = $("#p1").value;
+    const m1 = $("#m1").value;
+    const p2 = $("#p2").value;
+    let m2;
+    m1 === "X" ? (m2 = "O") : (m2 = "X");
+    let player1 = playerFactory(p1, m1);
+    let player2 = playerFactory(p2, m2);
+    let current_player = player1;
+    let switch_player = () => {
+        current_player === player1 ?
+            (current_player = player2) :
+            (current_player = player1);
+    };
 
-        // let playerTwo = playerFactory(player2.value, player2mark);
+    const addMark = () => {
         Array.from($$(".col-4")).forEach(cell => {
             cell.addEventListener("click", e => {
                 e.preventDefault;
-                cell.innerHTML = "X";
-                console.log(cell.getAttribute("data-id"));
-                gameBoard.addPosition(cell.getAttribute("data-id"), "X");
-                gameBoard.getBoard();
-                if (gameBoard.checkForWinner()) {
-                    console.log("not breaking");
-                }
+                cell.innerHTML = current_player.mark;
+                gameBoard.addPosition(
+                    cell.getAttribute("data-id"),
+                    current_player.mark
+                );
+                gameBoard.checkForWinner(current_player);
+                switch_player();
             });
         });
     };
@@ -161,4 +188,5 @@ const game = (() => {
         addMark
     };
 })();
+
 game.addMark();
