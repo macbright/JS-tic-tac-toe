@@ -9,3 +9,4 @@ files:
         - 'src/generated/*'
         - 'webroot/bower_components/*'
         - 'js/index.js'
+        - 'js/index.css'
