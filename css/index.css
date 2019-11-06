@@ -19,10 +19,6 @@ body {
 }
 
 .board {
-    align-items: center;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
     margin: 0 auto;
 		width: 430px;
 }

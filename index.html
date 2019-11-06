@@ -1,82 +1,77 @@
 <!DOCTYPE html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
 
-    <link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/index.css">
 
-    <title>Tic Tac Toe JS</title>
+	<title>Tic Tac Toe JS</title>
 
 </head>
 
 <body>
 
 
-    <div class="container">
-        <h1> Tic Tac Toe Game </h1>
+	<div class="container">
+		<h1> Tic Tac Toe Game </h1>
 
-        <h2 class="result py-4">
-        </h2>
-        <h3 class="selected">
-        </h3>
-        <div class="user-info mt-5">
-            <form action="" , method="post">
-                <div class="form-group player1 float-left">
-                    <label for="play1"> Player1's name</label>
-                    <input name="play1" type="text" id="p1" class="p11 form-control " placeholder="Please enter your name" required>
-                </div>
+		<h2 class="result py-4">
+		</h2>
+		<h3 class="selected">
+		</h3>
+		<div class="user-info mt-5">
+			<form action="" , method="post">
+				<div class="form-group player1 float-left">
+					<label for="play1"> Player1's name</label>
+					<input name="play1" type="text" id="p1" class="p11 form-control " placeholder="Please enter your name"
+						required>
+				</div>
 
-                <div class="form-group player2 float-right">
-                    <label for="play2"> Player2's name </label>
-                    <input type="text" id="p2" class="form-control p22" placeholder="Please enter your name" required>
-                </div>
-                <div class="clearfix"></div>
-                <div class="form-group mark">
-                    <label for="me"> Player1 Select Mark "X" or "O" </label><br>
-                    <select name="me" id="m1">
-                        <option value=""> SELECT </option>
-                        <option value="X"> X</option>
-                        <option value="O"> O </option>
-                    </select>
+				<div class="form-group player2 float-right">
+					<label for="play2"> Player2's name </label>
+					<input type="text" id="p2" class="form-control p22" placeholder="Please enter your name" required>
+				</div>
+				<div class="clearfix"></div>
+				<div class="form-group mark">
+					<label for="me"> Player1 Select Mark "X" or "O" </label><br>
+					<select name="me" id="m1">
+						<option value=""> SELECT </option>
+						<option value="X"> X</option>
+						<option value="O"> O </option>
+					</select>
 
-                </div>
-                <button type="button" class="btn btn-primary player2-next st-game" onclick="startGame()"> Start Game
-                </button>
-            </form>
-        </div>
-        <div class="col-6 mx-auto game-board my-4">
-            <div class="board">
-                <div class="col one" data-id="0"></div>
-                <div class="col two" data-id="1"></div>
-                <div class="col three" data-id="2"></div>
-                <div class="col four" data-id="3"></div>
-                <div class="col five" data-id="4"></div>
-                <div class="col six" data-id="5"></div>
-                <div class="col seven" data-id="6"></div>
-                <div class="col eight" data-id="7"></div>
-                <div class="col nine" data-id="8"></div>
-            </div>
-            <div class="d-flex mt-2">
-                <button class="btn btn-success new-game st-game" onclick="newGame()">New Game</button>
-                <button class="btn btn-success reset-game ml-5 " onclick="gameBoard.resetBoard()">Reset</button>
-            </div>
-            <div class="d-flex mt-5">
-                <h4 class="player-one-name">player one</h4> <span class="ml-5 mt-1">1</span>
-            </div>
-            <div class="d-flex">
-                <h4 class="player-two-name">player two</h4> <span class="ml-5 mt-1">1</span>
-            </div>
-        </div>
-    </div>
+				</div>
+				<button type="button" class="btn btn-primary player2-next st-game" onclick="startGame()"> Start Game
+				</button>
+			</form>
+		</div>
+		<div class="col-6 mx-auto game-board my-4">
+			<div class="row board">
+				<div class="col-4 col one " data-id="0"></div>
+				<div class="col-4 col two" data-id="1"></div>
+				<div class="col-4 col three" data-id="2"></div>
+				<div class="col-4 col four" data-id="3"></div>
+				<div class="col-4 col five" data-id="4"></div>
+				<div class="col-4 col six" data-id="5"></div>
+				<div class="col-4 col seven" data-id="6"></div>
+				<div class="col-4 col eight" data-id="7"></div>
+				<div class="col-4 col nine" data-id="8"></div>
+			</div>
+			<div class="d-flex mt-2 mx-auto">
+				<button class="btn btn-success new-game st-game" onclick="newGame()">New Game</button>
+				<button class="btn btn-success reset-game ml-auto " onclick="gameBoard.resetBoard()">Reset</button>
+			</div>
+		</div>
+	</div>
 
 
-    <script src="js/index.js">
-    </script>
+	<script src="js/index.js">
+	</script>
 </body>
 
 </html>
