@@ -2,7 +2,6 @@ body {
     background: #ccc;
     margin: 30px 50px;
     line-height: 1.4;
-    
 }
 
 .game-board {
@@ -47,7 +46,6 @@ body {
     margin: 20px 0px;
     display: none;
 }
-
 
 h1 {
     text-align: center;
