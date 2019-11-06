@@ -1,17 +1,10 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-const startGame = () => {
-    $(".st-game").addEventListener("click", e => {
-        $(".user-info").style.display = "none";
-        $(".game-board").style.display = "block";
-        gameBoard.renderBoard();
-    });
-};
 const gameBoard = (() => {
     let board = ["", "", "", "", "", "", "", "", ""];
     let count = 0;
-    gamestop = false;
+    let gamestop = false;
 
     const getBoard = board => board;
 
@@ -22,6 +15,7 @@ const gameBoard = (() => {
 
     const resetBoard = () => {
         board = ["", "", "", "", "", "", "", "", ""];
+        count = 0;
         renderBoard();
         return board;
     };
@@ -105,19 +99,12 @@ const gameBoard = (() => {
             winner(player);
         }
     };
-    const checkForWinner = (player, cell) => {
+    const checkForWinner = player => {
         checkRows(player);
         checkColumns(player);
         checkDiagonals(player);
-        if (cell.innerHTML !== '') {
-            $('.result').style.display = 'block'
-            $('.result').innerHTML = 'cell is already selected'
-            
-        } else {
-            // alert('cell is already selected')
-            count += 1 
-            
-        }
+        count += 1;
+        console.log(count);
         if (count === 9) {
             checkDraw();
         }
@@ -128,7 +115,8 @@ const gameBoard = (() => {
         addPosition,
         resetBoard,
         renderBoard,
-        checkForWinner
+        checkForWinner,
+        count
     };
 })();
 
@@ -154,16 +142,23 @@ const game = (() => {
     };
 
     const addMark = () => {
+        let a = 0;
         Array.from($$(".col")).forEach(cell => {
             cell.addEventListener("click", e => {
-                e.preventDefault;
-                cell.innerHTML = current_player.mark;
-                gameBoard.addPosition(
-                    cell.getAttribute("data-id"),
-                    current_player.mark
-                );
-                gameBoard.checkForWinner(current_player, cell);
-                switch_player();
+                console.log(`a = ${(a += 1)}`);
+                if (cell.innerHTML === "") {
+                    e.preventDefault;
+                    cell.innerHTML = current_player.mark;
+                    gameBoard.addPosition(
+                        cell.getAttribute("data-id"),
+                        current_player.mark
+                    );
+
+                    gameBoard.checkForWinner(current_player);
+                    switch_player();
+                } else if (cell.innerHTML === "X" || "O") {
+                    alert("the cell is already selected");
+                }
             });
         });
     };
@@ -173,4 +168,21 @@ const game = (() => {
     };
 })();
 
-game.addMark();
+const startGame = () => {
+    $(".st-game").addEventListener("click", e => {
+        e.preventDefault;
+        $(".user-info").style.display = "none";
+        $(".game-board").style.display = "block";
+        gameBoard.renderBoard();
+        game.addMark();
+    });
+};
+
+const newGame = () => {
+    $(".new-game").addEventListener("click", e => {
+        e.preventDefault;
+        $(".result").style.display = "none";
+        gameBoard.resetBoard();
+        game.addMark();
+    });
+};
