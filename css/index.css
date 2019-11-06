@@ -1,90 +1,15 @@
 body {
-    background: #eeeeee;
-}
-
-.player2 {
-    display: none;
+    background: #ccc;
+    margin: 30px 50px;
+    line-height: 1.4;
+    box-sizing: border-box;
 }
 
 .game-board {
-    width: 360px;
-    height: 360px;
     display: none;
-}
-
-.one {
-    width: 120px;
-    height: 120px;
-    border: 5px solid #000;
-    border-left: 0;
-    border-top: 0;
-}
-
-.two {
-    width: 120px;
-    height: 120px;
-    border: 5px solid #000;
-    border-top: 0;
-}
-
-.three {
-    width: 120px;
-    height: 120px;
-    border: 5px solid #000;
-    border-right: 0;
-    border-top: 0;
-}
-
-.four {
-    width: 120px;
-    height: 120px;
-    border: 5px solid #000;
-    border-left: 0;
-}
-
-.five {
-    width: 120px;
-    height: 120px;
-    border: 5px solid #000;
-}
-
-.six {
-    width: 120px;
-    height: 120px;
-    border: 5px solid #000;
-    border-right: 0;
-}
-
-.seven {
-    width: 120px;
-    height: 120px;
-    border: 5px solid #000;
-    border-left: 0;
-    border-bottom: 0;
-}
-
-.eight {
-    width: 120px;
-    height: 120px;
-    border: 5px solid #000;
-    border-bottom: 0;
-}
-
-.nine {
-    width: 120px;
-    height: 120px;
-    border: 5px solid #000;
-    border-right: 0;
-    border-bottom: 0;
-}
-
-.mark,
-.markNext {
-    display: none;
-}
-
-.col-4 {
-    cursor: pointer;
+    margin: 0 auto;
+    align-items: center;
+    width: 70%;
 }
 
 .player-mark {
@@ -93,18 +18,95 @@ body {
     margin: 0 auto;
 }
 
-.col-4 {
-    box-shadow: 0px 10px 6px -6px #c7c6c6;
+.board {
+    width: 430px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.col {
+    width: 130px;
+    height: 130px;
+    background: #ddd;
     font-size: 90px;
     font-weight: bolder;
     text-align: center;
     font-family: 'Sedgwick Ave Display', cursive;
+    box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+    cursor: pointer;
 }
 
 .result {
-    font-size: 70px;
+    font-size: 50px;
     font-weight: bolder;
     text-align: center;
     margin: 20px 0px;
     display: none;
 }
+
+h1 {
+    text-align: center;
+    background: #ddd;
+    align-items: center;
+    box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+    padding: 0.5rem;
+    font-size: 70px;
+    font-weight: bold;
+    width: 70%;
+    font-family: 'Sedgwick Ave Display', cursive;
+    margin: 0 auto;
+}
+
+.user-info {
+    text-align: center;
+    background: #ddd;
+    align-items: center;
+    box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+    padding: 2.5rem;
+    font-size: 30px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.btn {
+    background: #333;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+    border: 0;
+    font-size: 25px;
+    margin: 30px 20px;
+}
+
+.btn:hover {
+    background: #ddd;
+    color: #333;
+    font-weight: bold;
+    box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+
+.player1,
+.player2 {
+    width: 40%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.mark {
+    background: #ddd;
+    font-size: 20px;
+    font-weight: bolder;
+    width: 50%;
+    text-align: left;
+}
+
+
+/* :root {
+    --primary: #ddd;
+    --dark: #333;
+    --light: #fff;
+    --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+} */

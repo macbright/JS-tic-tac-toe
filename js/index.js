@@ -1,37 +1,13 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-const player1Next = document.querySelector(".player1-next");
-const player2Next = document.querySelector(".player2-next");
-const userInfo = document.querySelector(".user-info");
-const player2 = document.querySelector(".player2");
-const player1 = document.querySelector(".player1");
-const player1MarkButton = document.querySelector(".markNext");
-const player1Mark = document.querySelector(".mark");
-const boardLayout = document.querySelector(".game-board");
-let playerInfo1 = [];
-player1Next.addEventListener("click", e => {
-    e.preventDefault;
-    player1.style.display = "none";
-    player1Next.style.display = "none";
-    player1Mark.style.display = "block";
-    player1MarkButton.style.display = "block";
-});
-
-player1MarkButton.addEventListener("click", e => {
-    e.preventDefault;
-    player1Mark.style.display = "none";
-    player1MarkButton.style.display = "none";
-    player2.style.display = "block";
-    player2Next.style.display = "block";
-});
-
-player2Next.addEventListener("click", e => {
-    e.preventDefault;
-    userInfo.style.display = "none";
-    boardLayout.style.display = "block";
-});
-
+const startGame = () => {
+    $(".st-game").addEventListener("click", e => {
+        $(".user-info").style.display = "none";
+        $(".game-board").style.display = "block";
+        gameBoard.renderBoard();
+    });
+};
 const gameBoard = (() => {
     let board = ["", "", "", "", "", "", "", "", ""];
     let count = 0;
@@ -50,7 +26,7 @@ const gameBoard = (() => {
         return board;
     };
     let renderBoard = () => {
-        Array.from($$(".col-4")).forEach((cell, index) => {
+        Array.from($$(".col")).forEach((cell, index) => {
             cell.innerHTML = board[index];
         });
     };
@@ -59,7 +35,7 @@ const gameBoard = (() => {
         gamestop = true;
         $(".result").innerHTML = `Congrats ${player.name}  won!!! 🎉`;
         $(".result").style.display = "block";
-        $$(".col-4").forEach(box => {
+        $$(".col").forEach(box => {
             const newBox = box.cloneNode(true);
             box.parentNode.replaceChild(newBox, box);
         });
@@ -69,7 +45,7 @@ const gameBoard = (() => {
         gamestop = true;
         $(".result").innerHTML = "It's a draw";
         $(".result").style.display = "block";
-        $$(".col-4").forEach(box => {
+        $$(".col").forEach(box => {
             const newBox = box.cloneNode(true);
             box.parentNode.replaceChild(newBox, box);
         });
@@ -170,7 +146,7 @@ const game = (() => {
     };
 
     const addMark = () => {
-        Array.from($$(".col-4")).forEach(cell => {
+        Array.from($$(".col")).forEach(cell => {
             cell.addEventListener("click", e => {
                 e.preventDefault;
                 cell.innerHTML = current_player.mark;

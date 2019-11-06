@@ -15,57 +15,57 @@
 </head>
 
 <body>
-    <h1> Tic Tac Toe Game</h1>
+
 
     <div class="container">
+        <h1> Tic Tac Toe Game </h1>
         <h2 class="result py-4">
             </h3>
-            <div class="user-info">
+            <div class="user-info mt-5">
                 <form action="" , method="post">
-                    <div class="form-group player1">
+                    <div class="form-group player1 float-left">
                         <label for="play1"> Player1's name</label>
-                        <input name="play1" type="text" id="p1" class="p11form-control " placeholder="Please enter your name" required>
-                    </div>
-                    <div class="form-group mark">
-                        <label for="symbol"> Please select a mark </label>
-                        <select name="" id="m1">
-                        <option value=""> SELECT </option>
-                        <option value="X"> X</option>
-                        <option value="O"> O </option>
-                    </select>
-
+                        <input name="play1" type="text" id="p1" class="p11 form-control " placeholder="Please enter your name" required>
                     </div>
 
-                    <div class="form-group player2">
+                    <div class="form-group player2 float-right">
                         <label for="play2"> Player2's name </label>
                         <input type="text" id="p2" class="form-control p22" placeholder="Please enter your name" required>
                     </div>
-                    <button type="button" class="btn btn-primary  markNext"> Next </button>
-                    <button type="button" class="btn btn-primary player1 player1-next"> Next </button>
-                    <button type="button" class="btn btn-primary player2-next player2 " onclick="gameBoard.renderBoard()"> Next </button>
+                    <div class="clearfix"></div>
+                    <div class="form-group mark">
+                        <label for="me"> Player1 Select Mark "X" or "O" </label><br>
+                        <select name="me" id="m1">
+                            <option value=""> SELECT </option>
+                            <option value="X"> X</option>
+                            <option value="O"> O </option>
+                        </select>
+
+                    </div>
+                    <button type="button" class="btn btn-primary player2-next st-game" onclick="startGame()"> Start Game </button>
                 </form>
             </div>
-            <div class="col-6 mx-auto game-board">
-                <div class="row">
-                    <div class="col-4 one" data-id="0"></div>
-                    <div class="col-4 two" data-id="1"></div>
-                    <div class="col-4 three" data-id="2"></div>
-                    <div class="col-4 four" data-id="3"></div>
-                    <div class="col-4 five" data-id="4"></div>
-                    <div class="col-4 six" data-id="5"></div>
-                    <div class="col-4 seven" data-id="6"></div>
-                    <div class="col-4 eight" data-id="7"></div>
-                    <div class="col-4 nine" data-id="8"></div>
+            <div class="col-6 mx-auto game-board my-4">
+                <div class="board">
+                    <div class="col one" data-id="0"></div>
+                    <div class="col two" data-id="1"></div>
+                    <div class="col three" data-id="2"></div>
+                    <div class="col four" data-id="3"></div>
+                    <div class="col five" data-id="4"></div>
+                    <div class="col six" data-id="5"></div>
+                    <div class="col seven" data-id="6"></div>
+                    <div class="col eight" data-id="7"></div>
+                    <div class="col nine" data-id="8"></div>
                 </div>
                 <div class="d-flex mt-2">
-                    <button class="btn btn-success new-game pl-5 pr-5">New Game</button>
-                    <button class="btn btn-success reset-game ml-auto pl-5 pr-5" onclick="gameBoard.resetBoard()">Reset</button>
+                    <button class="btn btn-success new-game ">New Game</button>
+                    <button class="btn btn-success reset-game ml-5 " onclick="gameBoard.resetBoard()">Reset</button>
                 </div>
                 <div class="d-flex mt-5">
-                    <h4 class="player-one-name">player one</h4> <span class="ml-auto mt-1">1</span>
+                    <h4 class="player-one-name">player one</h4> <span class="ml-5 mt-1">1</span>
                 </div>
                 <div class="d-flex">
-                    <h4 class="player-two-name">player two</h4> <span class="ml-auto mt-1">1</span>
+                    <h4 class="player-two-name">player two</h4> <span class="ml-5 mt-1">1</span>
                 </div>
             </div>
     </div>
