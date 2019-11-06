@@ -26,9 +26,9 @@ body {
 		background: #ddd;
 		box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
 		cursor: pointer;
+		font-family: 'Sedgwick Ave Display', cursive;
     font-size: 90px;
     font-weight: bolder;
-    font-family: 'Sedgwick Ave Display', cursive;
     height: 130px;
 		text-align: center;
 		width: 130px;
