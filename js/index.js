@@ -10,7 +10,6 @@ const gameBoard = (() => {
 
     const addPosition = (position, mark) => {
         board[position] = mark;
-        console.log(board);
     };
 
     const resetBoard = () => {
@@ -104,7 +103,6 @@ const gameBoard = (() => {
         checkColumns(player);
         checkDiagonals(player);
         count += 1;
-        console.log(count);
         if (count === 9) {
             checkDraw();
         }
@@ -145,7 +143,6 @@ const game = (() => {
         let a = 0;
         Array.from($$(".col")).forEach(cell => {
             cell.addEventListener("click", e => {
-                console.log(`a = ${(a += 1)}`);
                 if (cell.innerHTML === "") {
                     e.preventDefault;
                     cell.innerHTML = current_player.mark;
@@ -156,9 +153,8 @@ const game = (() => {
 
                     gameBoard.checkForWinner(current_player);
                     switch_player();
-                } else if (cell.innerHTML === "X" || "O") {
-                    alert("the cell is already selected");
                 }
+
             });
         });
     };

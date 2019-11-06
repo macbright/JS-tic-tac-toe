@@ -39,6 +39,7 @@ body {
     cursor: pointer;
 }
 
+.selected,
 .result {
     font-size: 50px;
     font-weight: bolder;
@@ -46,6 +47,7 @@ body {
     margin: 20px 0px;
     display: none;
 }
+
 
 h1 {
     text-align: center;
