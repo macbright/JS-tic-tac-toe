@@ -2,7 +2,6 @@ body {
 		background: #ccc;
 		line-height: 1.4;
     margin: 30px 50px;
-    line-height: 1.4;
 }
 
 .game-board {
@@ -24,8 +23,8 @@ body {
 }
 
 .col {
-		box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
 		background: #ddd;
+		box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
 		cursor: pointer;
     font-size: 90px;
     font-weight: bolder;
@@ -40,7 +39,7 @@ body {
 	  display: none;
     font-size: 50px;
 		font-weight: bolder;
-		margin: 20px 0px;
+		margin: 20px 0;
     text-align: center;
 }
 
@@ -63,7 +62,6 @@ h1 {
     box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
 		font-size: 30px;
 		margin: 0 auto;
-		padding: 2.5rem;
 		text-align: center;
     width: 70%;
 }
@@ -94,7 +92,8 @@ h1 {
 .mark {
     background: #ddd;
     font-size: 20px;
-    font-weight: bolder;
+		font-weight: bolder;
+		text-align: left;
     width: 50%;
-    text-align: left;
+    
 }
