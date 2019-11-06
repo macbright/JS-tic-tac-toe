@@ -105,11 +105,19 @@ const gameBoard = (() => {
             winner(player);
         }
     };
-    const checkForWinner = player => {
+    const checkForWinner = (player, cell) => {
         checkRows(player);
         checkColumns(player);
         checkDiagonals(player);
-        count += 1;
+        if (cell.innerHTML !== '') {
+            $('.result').style.display = 'block'
+            $('.result').innerHTML = 'cell is already selected'
+            
+        } else {
+            // alert('cell is already selected')
+            count += 1 
+            
+        }
         if (count === 9) {
             checkDraw();
         }
@@ -154,7 +162,7 @@ const game = (() => {
                     cell.getAttribute("data-id"),
                     current_player.mark
                 );
-                gameBoard.checkForWinner(current_player);
+                gameBoard.checkForWinner(current_player, cell);
                 switch_player();
             });
         });
