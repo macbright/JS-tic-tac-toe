@@ -2,7 +2,7 @@ body {
     background: #ccc;
     margin: 30px 50px;
     line-height: 1.4;
-    box-sizing: border-box;
+    
 }
 
 .game-board {
@@ -22,7 +22,7 @@ body {
     width: 430px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 15px;
+    gap: 15px;
     margin: 0 auto;
     align-items: center;
 }
@@ -104,11 +104,3 @@ h1 {
     width: 50%;
     text-align: left;
 }
-
-
-/* :root {
-    --primary: #ddd;
-    --dark: #333;
-    --light: #fff;
-    --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
-} */
