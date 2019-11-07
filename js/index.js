@@ -15,6 +15,7 @@ const gameBoard = (() => {
     const resetBoard = () => {
         board = ["", "", "", "", "", "", "", "", ""];
         count = 0;
+        gamestop = false;
         renderBoard();
         return board;
     };
