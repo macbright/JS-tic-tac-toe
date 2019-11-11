@@ -126,22 +126,17 @@ const playerFactory = (name, mark, score = 0) => {
 };
 
 const game = (() => {
-    const p1 = $("#p1").value;
-    const m1 = $("#m1").value;
-    const p2 = $("#p2").value;
-    let m2;
-    m1 === "X" ? (m2 = "O") : (m2 = "X");
-    let player1 = playerFactory(p1, m1);
-    let player2 = playerFactory(p2, m2);
-    let current_player = player1;
-    let switch_player = () => {
-        current_player === player1 ?
-            (current_player = player2) :
-            (current_player = player1);
-    };
 
     const addMark = () => {
-        let a = 0;
+        const p1 = $("#p1").value;
+        const m1 = $("#m1").value;
+        const p2 = $("#p2").value;
+        let m2;
+        m1 === "X" ? (m2 = "O") : (m2 = "X");
+        let player1 = playerFactory(p1, m1);
+        let player2 = playerFactory(p2, m2);
+        let current_player = player1;
+
         Array.from($$(".col")).forEach(cell => {
             cell.addEventListener("click", e => {
                 if (cell.innerHTML === "") {
@@ -151,9 +146,10 @@ const game = (() => {
                         cell.getAttribute("data-id"),
                         current_player.mark
                     );
-
                     gameBoard.checkForWinner(current_player);
-                    switch_player();
+                    current_player === player1 ?
+                        (current_player = player2) :
+                        (current_player = player1);
                 }
             });
         });
