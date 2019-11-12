@@ -1,0 +1,99 @@
+body {
+		background: #ccc;
+		line-height: 1.4;
+    margin: 30px 50px;
+}
+
+.game-board {
+	  align-items: center;
+    display: none;
+    margin: 0 auto;  
+    width: 70%;
+}
+
+.player-mark {
+    font-size: 50;
+    font-weight: bolder;
+    margin: 0 auto;
+}
+
+.board {
+    margin: 0 auto;
+		width: 430px;
+}
+
+.col {
+		background: #ddd;
+		box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+		cursor: pointer;
+		font-family: 'Sedgwick Ave Display', cursive;
+    font-size: 90px;
+    font-weight: bolder;
+    height: 130px;
+		text-align: center;
+		width: 130px;
+}
+
+.selected,
+.result {
+	  display: none;
+    font-size: 50px;
+		font-weight: bolder;
+		margin: 20px 0;
+    text-align: center;
+}
+
+h1 {
+    align-items: center;
+    background: #ddd;
+		box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+		font-family: 'Sedgwick Ave Display', cursive;
+    font-size: 70px;
+		font-weight: bold;
+		margin: 0 auto;
+		padding: 0.5rem;
+		text-align: center;
+    width: 70%;
+}
+
+.user-info {
+		align-items: center;
+		background: #ddd;
+    box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+		font-size: 30px;
+		margin: 0 auto;
+		text-align: center;
+    width: 70%;
+}
+
+.btn {
+		background: #333;
+		border: 0;
+		color: #fff;
+		font-size: 25px;
+		margin: 30px 20px;
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+}
+
+.btn:hover {
+		background: #ddd;
+		box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+    color: #333;
+    font-weight: bold;
+}
+
+.player1,
+.player2 {
+		font-weight: bold;
+		text-align: center;
+		width: 40%;
+}
+.mark {
+    background: #ddd;
+    font-size: 20px;
+		font-weight: bolder;
+		text-align: left;
+    width: 50%;
+    
+}
