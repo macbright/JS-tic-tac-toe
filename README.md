@@ -28,7 +28,7 @@ $ cd library-project
 
 ## Live Demo
 
-The demo page can be found [HERE]()
+The demo page can be found [HERE](https://raw.githack.com/macbright/JS-tic-tac-toe/tic-tac-toe/index.html)
 
 ## Designed and developed by
 
